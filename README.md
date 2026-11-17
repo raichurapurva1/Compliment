@@ -33,9 +33,11 @@ co-founding, paid collaboration, mentoring or advising. Launch city: Philadelphi
 3. Open **Authentication → URL Configuration**:
    - **Site URL:** `http://localhost:3000` (change it to your real domain when you deploy)
    - **Redirect URLs:** add `http://localhost:3000/auth/callback` (and later `https://YOUR-DOMAIN/auth/callback`)
-4. Optional, for a quick friends-only pilot: **Authentication → Sign In / Providers → Email**, turn off
-   **Confirm email** so people can sign in immediately. If you leave it on, people get a confirmation
-   link that lands on `/auth/callback`.
+4. For a friends-only pilot: **Authentication → Sign In / Providers → Email**, turn off
+   **Confirm email** so people can sign in immediately. Supabase's built-in email sender only delivers to
+   your project's team members and is heavily rate-limited, so with confirmation on, friends may never get
+   the link. To keep confirmation on, first add your own SMTP provider (for example Resend) under
+   **Authentication → Emails → SMTP Settings**. Confirmation links land on `/auth/callback`.
 
 ### 2. Configure the app
 
